@@ -70,6 +70,29 @@
           <artifactId>commons-dbcp</artifactId>
           <version>1.4</version>
       </dependency>
+
+      <dependency>
+          <groupId>cglib</groupId>
+          <artifactId>cglib</artifactId>
+          <version>3.0</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>asm</artifactId>
+                  <groupId>org.ow2.asm</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.ow2.asm</groupId>
+          <artifactId>asm</artifactId>
+          <version>4.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.ow2.asm</groupId>
+          <artifactId>asm-util</artifactId>
+          <version>4.0</version>
+      </dependency>
+
   </dependencies>
 
   <properties>
