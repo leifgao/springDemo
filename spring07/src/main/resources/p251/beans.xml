@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <!--目标类定义-->
     <bean id="waiterTarget" class="me.leifgao.springDemo.p246.Waiter" />
@@ -13,12 +11,18 @@
     <!--增强定义-->
     <bean id="greetingAdvice" class="me.leifgao.springDemo.p232.GreetingBeforeAdvice" />
 
-    <!--静态方法名匹配切点切面定义-->
-    <bean id="greetingAdvisor" class="me.leifgao.springDemo.p246.GreetingStaticMethodAdvisor"
-          p:advice-ref="greetingAdvice"/>
+    <!--动态切面定义-->
+    <bean id="dynamicAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut">
+            <bean class="me.leifgao.springDemo.p251.GreetingDynamicPointcut" />
+        </property>
+        <property name="advice">
+            <bean class="me.leifgao.springDemo.p232.GreetingBeforeAdvice"/>
+        </property>
+    </bean>
 
     <bean id="parent" abstract="true" class="org.springframework.aop.framework.ProxyFactoryBean"
-          p:interceptorNames="greetingAdvisor"
+          p:interceptorNames="dynamicAdvisor"
           p:proxyTargetClass="true" />
 
     <!--代理定义-->

@@ -7,8 +7,9 @@ import java.lang.reflect.Method;
 
 /**
  * Created by leif on 2017/9/11
+ * 切面继承了切点，所以切面类里可以定义切点的方法名和类型匹配方法
  */
-public class GreetingAdvisor extends StaticMethodMatcherPointcutAdvisor{
+public class GreetingStaticMethodAdvisor extends StaticMethodMatcherPointcutAdvisor{
 
 
     //方法名匹配

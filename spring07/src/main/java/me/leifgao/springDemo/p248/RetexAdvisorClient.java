@@ -10,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class RetexAdvisorClient {
 
+    //静态正则方法匹配切面
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("p248/beans.xml");
 
