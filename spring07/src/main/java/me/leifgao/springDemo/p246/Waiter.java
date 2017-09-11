@@ -12,4 +12,8 @@ public class Waiter {
     public void serveTo(String name) {
         System.out.println("waiter serve to" + name);
     }
+
+    public void dxxgreetTo(String name) {
+        System.out.println("dxxgreetTo" + name);
+    }
 }

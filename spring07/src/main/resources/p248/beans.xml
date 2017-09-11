@@ -14,11 +14,12 @@
     <bean id="greetingAdvice" class="me.leifgao.springDemo.p232.GreetingBeforeAdvice" />
 
     <!--切面定义-->
-    <bean id="greetingAdvisor" class="me.leifgao.springDemo.p246.GreetingAdvisor"
-          p:advice-ref="greetingAdvice"/>
+    <bean id="regexpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"
+          p:advice-ref="greetingAdvice"
+          p:patterns=".*greet.*"  />
 
     <bean id="parent" abstract="true" class="org.springframework.aop.framework.ProxyFactoryBean"
-          p:interceptorNames="greetingAdvisor"
+          p:interceptorNames="regexpAdvisor"
           p:proxyTargetClass="true" />
 
     <!--代理定义-->

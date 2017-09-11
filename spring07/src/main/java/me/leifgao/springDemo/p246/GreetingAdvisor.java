@@ -11,11 +11,13 @@ import java.lang.reflect.Method;
 public class GreetingAdvisor extends StaticMethodMatcherPointcutAdvisor{
 
 
+    //方法名匹配
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
         return "greetTo".equals(method.getName());
     }
 
+    //类匹配
     @Override
     public ClassFilter getClassFilter() {
         return new ClassFilter() {
