@@ -19,6 +19,11 @@ public class DynamicAdvisorClient {
         waiterProxy.greetTo("第一次");
         waiterProxy.greetTo("pg-one");
         waiterProxy.greetTo("第三次");
+
+        waiterProxy.serveTo("第一次");
+        waiterProxy.serveTo("第二次");
+        waiterProxy.serveTo("第三次");
+
         sellerProxy.greetTo("pg-one");
         sellerProxy.greetTo("第二次");
 

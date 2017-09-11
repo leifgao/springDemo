@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--目标类定义-->
+    <bean id="waiterTarget" class="me.leifgao.springDemo.p246.Waiter" />
+    <bean id="sellerTarget" class="me.leifgao.springDemo.p246.Seller" />
+
+    <!--增强定义-->
+    <bean id="greetingAdvice" class="me.leifgao.springDemo.p232.GreetingBeforeAdvice" />
+
+    <!--流程切点定义-->
+    <bean id="controlFlowPointcut" class="org.springframework.aop.support.ControlFlowPointcut">
+        <constructor-arg type="java.lang.Class" value="me.leifgao.springDemo.p255.WaiterDelegate" />
+        <constructor-arg type="java.lang.String" value="service" />
+    </bean>
+
+    <!--流程切面定义-->
+    <bean id="controlFlowAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor"
+          p:pointcut-ref="controlFlowPointcut"
+          p:advice-ref="greetingAdvice"/>
+
+    <bean id="parent" abstract="true" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:interceptorNames="controlFlowAdvisor"
+          p:proxyTargetClass="true" />
+
+    <!--代理定义-->
+    <bean id="waiter" parent="parent" p:target-ref="waiterTarget" />
+    <bean id="seller" parent="parent" p:target-ref="sellerTarget" />
+</beans>
