@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 
 /**
  * Created by leif on 2017/9/10
+ * Cglib实现的动态代理
  */
 public class CglibProxy implements MethodInterceptor{
 

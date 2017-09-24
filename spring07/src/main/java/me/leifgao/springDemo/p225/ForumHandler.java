@@ -5,10 +5,11 @@ import java.lang.reflect.Method;
 
 /**
  * Created by leif on 2017/9/10
+ * JDK动态代理
  */
 public class ForumHandler implements InvocationHandler{
 
-    private Object target;
+    private Object target; //需要目标类的句柄
 
     public ForumHandler(Object target) {
         this.target = target;

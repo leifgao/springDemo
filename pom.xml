@@ -10,6 +10,7 @@
         <module>spring05</module>
         <module>spring06</module>
         <module>spring07</module>
+        <module>spring08</module>
     </modules>
     <packaging>pom</packaging>
 
