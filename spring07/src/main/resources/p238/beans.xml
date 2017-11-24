@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!--目标类定义-->
+    <bean id="forumServiceTarget" class="me.leifgao.springDemo.p238.ForumService"/>
+
+    <!--异常抛出增强定义-->
+    <bean id="transactionThrowAdvice" class="me.leifgao.springDemo.p238.TransactionThrowAdvice"/>
+
+    <!-- 代理类定义 -->  <!--增强--> <!--目标类-->
+    <bean id="forumService" class="org.springframework.aop.framework.ProxyFactoryBean"
+     p:interceptorNames="transactionThrowAdvice"
+     p:target-ref="forumServiceTarget"
+     p:proxyTargetClass="true"/>
+</beans>
