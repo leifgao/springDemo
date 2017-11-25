@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--目标类定义-->
+    <bean id="openAccountServiceTarget" class="me.leifgao.springDemo.p240.OpenAccountService"/>
+
+    <!--引介增强定义-->
+    <bean id="controllablePerformanceMonitor" class="me.leifgao.springDemo.p240.ControllablePerformanceMonitor"/>
+
+    <!-- 代理类定义 --> <!--引介增强实现的接口--> <!--引介增强--> <!--目标类--> <!--是否使用CGLib实现增强-->
+    <bean id="openAccountService" class="org.springframework.aop.framework.ProxyFactoryBean"
+     p:interfaces="me.leifgao.springDemo.p240.Monitorable"
+     p:interceptorNames="controllablePerformanceMonitor"
+     p:target-ref="openAccountServiceTarget"
+     p:proxyTargetClass="true"/>
+</beans>
