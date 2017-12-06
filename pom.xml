@@ -17,8 +17,34 @@
   <name>spring4.x-demo</name>
   <url>http://maven.apache.org</url>
 
+    <properties>
+        <project.version>3.0-SNAPSHOT</project.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testng.version>6.8.7</testng.version>
+        <spring.version>4.2.2.RELEASE</spring.version>
+        <lombok.version>1.14.0</lombok.version>
+        <groovy.version>2.4.4</groovy.version>
+        <dbcp.version>1.4</dbcp.version>
+        <cglib.version>3.0</cglib.version>
+        <asm.version>4.0</asm.version>
+        <asmUtil.version>4.0</asmUtil.version>
+        <aspectj.version>1.6.11</aspectj.version>
+    </properties>
+
+
   <dependencyManagement>
       <dependencies>
+          <dependency>
+              <groupId>me.leifgao.springDemo</groupId>
+              <artifactId>spring-07</artifactId>
+              <version>${project.version}</version>
+          </dependency>
+          <dependency>
+              <groupId>me.leifgao.springDemo</groupId>
+              <artifactId>spring-08</artifactId>
+              <version>${project.version}</version>
+          </dependency>
+
           <!--spring依赖-->
           <dependency>
               <groupId>org.springframework</groupId>
@@ -111,18 +137,5 @@
           </dependency>
       </dependencies>
     </dependencyManagement>
-
-  <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <testng.version>6.8.7</testng.version>
-      <spring.version>4.2.2.RELEASE</spring.version>
-      <lombok.version>1.14.0</lombok.version>
-      <groovy.version>2.4.4</groovy.version>
-      <dbcp.version>1.4</dbcp.version>
-      <cglib.version>3.0</cglib.version>
-      <asm.version>4.0</asm.version>
-      <asmUtil.version>4.0</asmUtil.version>
-      <aspectj.version>1.6.11</aspectj.version>
-  </properties>
 
 </project>

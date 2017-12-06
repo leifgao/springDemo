@@ -9,7 +9,6 @@ import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
  */
 public class Client {
 
-
     public static void main(String[] args) {
         Waiter waiterTarget = new NaiveWatier();
         AspectJProxyFactory aspectJProxyFactory = new AspectJProxyFactory();
