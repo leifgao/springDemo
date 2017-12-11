@@ -11,8 +11,8 @@ public class ClientXml {
     public static void main(String[] args) {
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("p275/beans.xml");
         Waiter waiterProxy = (Waiter) beanFactory.getBean("waiterTarget");
-        waiterProxy.serveTo("gao");
         waiterProxy.greetTo("gao");
+        waiterProxy.serveTo("gao");
         waiterProxy.argsTest(null);
     }
 }
