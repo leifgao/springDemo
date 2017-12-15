@@ -28,7 +28,7 @@
         <cglib.version>3.0</cglib.version>
         <asm.version>4.0</asm.version>
         <asmUtil.version>4.0</asmUtil.version>
-        <aspectj.version>1.6.11</aspectj.version>
+        <aspectj.version>1.6.12</aspectj.version>
     </properties>
 
 
@@ -127,14 +127,14 @@
           <!--aspectj-->
           <dependency>
               <groupId>org.aspectj</groupId>
-              <artifactId>com.springsource.org.aspectj.weaver</artifactId>
+              <artifactId>aspectjweaver</artifactId>
               <version>${aspectj.version}</version>
           </dependency>
-          <dependency>
-              <groupId>org.aspectj</groupId>
-              <artifactId>aspectjtools</artifactId>
-              <version>${aspectj.version}</version>
-          </dependency>
+          <!--<dependency>-->
+              <!--<groupId>org.aspectj</groupId>-->
+              <!--<artifactId>aspectjtools</artifactId>-->
+              <!--<version>${aspectj.version}</version>-->
+          <!--</dependency>-->
       </dependencies>
     </dependencyManagement>
 

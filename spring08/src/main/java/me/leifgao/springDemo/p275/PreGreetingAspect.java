@@ -2,7 +2,6 @@ package me.leifgao.springDemo.p275;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by leif on 2017/11/27
@@ -10,21 +9,21 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class PreGreetingAspect {
 
-    //方法模式匹配
-    @Before("execution(* greetTo(..))")
-    public void beforeGreeting() {
-        System.out.println("方法模式匹配 : 你好");
+    //方法名匹配 execution()
+    @Before(value = "execution(* greetTo(..))")
+    public void executionTest() {
+        System.out.println("方法名匹配 : 你好");
     }
 
-    //方法注解类名
+    //方法注解类型匹配 @annotation
     @Before("@annotation(me.leifgao.springDemo.p275.leif)")
     public void annotationTest() {
-        System.out.println("特定注解匹配 : 你好");
+        System.out.println("方法注解类型匹配 : 你好");
     }
 
-    //类名
+    //方法入参类型匹配 args
     @Before("args(me.leifgao.springDemo.p275.Waiter)")
     public void argsTest() {
-        System.out.println("方法入参类型切点");
+        System.out.println("方法入参类型切点 : 你好");
     }
 }

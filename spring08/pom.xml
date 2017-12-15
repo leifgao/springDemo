@@ -63,11 +63,7 @@
         <!--aspectj-->
         <dependency>
             <groupId>org.aspectj</groupId>
-            <artifactId>com.springsource.org.aspectj.weaver</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjtools</artifactId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
 
     </dependencies>
