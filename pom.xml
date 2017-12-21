@@ -11,6 +11,8 @@
         <module>spring06</module>
         <module>spring07</module>
         <module>spring08</module>
+        <module>spring11</module>
+        <module>spring12</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -29,6 +31,8 @@
         <asm.version>4.0</asm.version>
         <asmUtil.version>4.0</asmUtil.version>
         <aspectj.version>1.6.12</aspectj.version>
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <mysql.version>5.1.29</mysql.version>
     </properties>
 
 
@@ -135,6 +139,20 @@
               <!--<artifactId>aspectjtools</artifactId>-->
               <!--<version>${aspectj.version}</version>-->
           <!--</dependency>-->
+
+          <!--dbcp-->
+          <dependency>
+              <groupId>commons-dbcp</groupId>
+              <artifactId>commons-dbcp</artifactId>
+              <version>${commons-dbcp.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>mysql</groupId>
+              <artifactId>mysql-connector-java</artifactId>
+              <version>${mysql.version}</version>
+          </dependency>
+
       </dependencies>
     </dependencyManagement>
 
