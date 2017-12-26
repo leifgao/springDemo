@@ -13,6 +13,7 @@
         <module>spring08</module>
         <module>spring11</module>
         <module>spring12</module>
+        <module>spring13</module>
     </modules>
     <packaging>pom</packaging>
 
