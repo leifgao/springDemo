@@ -15,6 +15,7 @@
         <module>spring12</module>
         <module>spring13</module>
         <module>spring15</module>
+        <module>spring16</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -35,6 +36,7 @@
         <aspectj.version>1.6.12</aspectj.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <mysql.version>5.1.29</mysql.version>
+        <quartz.version>1.8.6</quartz.version>
     </properties>
 
 
@@ -153,6 +155,12 @@
               <groupId>mysql</groupId>
               <artifactId>mysql-connector-java</artifactId>
               <version>${mysql.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.quartz-scheduler</groupId>
+              <artifactId>quartz</artifactId>
+              <version>${quartz.version}</version>
           </dependency>
 
       </dependencies>
