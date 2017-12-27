@@ -21,9 +21,6 @@ public class SimpleTriggerRunner {
         simpleTrigger.setRepeatInterval(2000);
         simpleTrigger.setRepeatCount(100);
 
-        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
-        Scheduler scheduler = schedulerFactory.getScheduler();
-        scheduler.scheduleJob(jobDetail, simpleTrigger);
-        scheduler.start();
+
     }
 }

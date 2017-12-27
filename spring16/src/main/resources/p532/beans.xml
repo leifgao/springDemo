@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!--jobDetail-->
+    <bean id="jobDetail_1"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
+          p:targetObject="myService"
+          p:targetMethod="doJob"
+          p:concurrent="false"/>
+
+    <!--普通POJO-->
+    <bean id="myService" class="me.leifgao.springDemo.p532.MyService"/>
+
+    <!--simpleTrigger-->
+    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean"
+          p:jobDetail-ref="jobDetail_1"
+          p:startDelay="1000"
+          p:repeatInterval="2000"
+          p:repeatCount="100">
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="count" value="10"/>
+            </map>
+        </property>
+    </bean>
+
+    <!--cronTrigger-->
+    <bean id="checkImagesTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+          p:jobDetail-ref="jobDetail_1"
+          p:cronExpression="0/5 * * * * ?"/>
+
+    <!--scheduler-->
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="simpleTrigger"/>
+            </list>
+        </property>
+        <property name="schedulerContextAsMap">
+            <map>
+                <entry key="timeout" value="30"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
